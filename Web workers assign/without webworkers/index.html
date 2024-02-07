@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>without webworkers</title>
+
+    <script>
+        function simpleMessage(){
+            alert("welcome friends");
+        }
+
+        function timeConsumingOperation(){
+            calculate();
+        }
+
+        function calculate(){
+            var output;
+            for (var i = 0; i <= 4000000000 ; i++){
+                output = i;
+                if(i % 20000000 === 0){
+                    console.log(i + ' iterations over');
+                }
+            }
+            alert('All iterations over');
+            console.log('All iterations over');
+        }
+    </script>
+</head>
+<body>
+    <h1>without webworkers</h1>
+    <button onclick="simpleMessage()"> Welcome </button>
+    <button onclick="timeConsumingOperation()"> Calculate </button>
+</body>
+</html>
